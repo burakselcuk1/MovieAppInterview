@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.*
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
-    private var adapter = MovieAdapter(arrayListOf())
+    lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +35,6 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.getMovies()
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
-
         getMoviesFromApi()
     }
 
@@ -45,7 +43,10 @@ class DashboardFragment : Fragment() {
 
             movies?.let {
                 recyclerView.visibility = View.VISIBLE
-                adapter.updataMovieList(it)
+                movieAdapter = MovieAdapter(movies!!)
+                recyclerView.adapter = movieAdapter
+
+                //    adapter.updataMovieList(it)
             }
 
         })

@@ -7,9 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieappinterview.R
 import com.example.movieappinterview.model.Result
+import com.example.movieappinterview.model.movie
 
 
-class MovieAdapter( val dataSet: ArrayList<Result>) :
+class MovieAdapter( val dataSet: movie) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     /**
@@ -41,17 +42,13 @@ class MovieAdapter( val dataSet: ArrayList<Result>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.description.text = dataSet[position].overview.toString()
-        viewHolder.movieName.text = dataSet[position].original_title.toString()
+        viewHolder.description.text = dataSet.results.get(position).original_title
+        viewHolder.movieName.text = dataSet.results.get(position).overview
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = dataSet.size
+    override fun getItemCount() = dataSet.results.size
 
-    fun updataMovieList(movies : List<Result>){
-        dataSet.clear()
-        dataSet.addAll(movies)
-        notifyDataSetChanged()
-    }
+
 
 }
