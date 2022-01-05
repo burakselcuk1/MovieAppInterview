@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface MovieDbInterface {
 
-    //https://api.themoviedb.org/3/movie/popular?api_key=6eeb39d6df396b3373f188208038112c
+
 
 //    https://api.themoviedb.org/3/movie/popular?api_key=6eeb39d6df396b3373f188208038112c
 

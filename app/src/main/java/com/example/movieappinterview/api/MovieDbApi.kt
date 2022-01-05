@@ -20,7 +20,6 @@ class MovieDbApi {
     fun getMovie(): Single<List<Result>> {
         return api.getMovieList()
     }
-
-
-
 }
+
+

@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/black"
         app:layout_constraintHeight_percent="0.25"
 
         >
@@ -27,6 +28,7 @@
             android:id="@+id/movieName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginTop="40dp"
             android:text="Movie Name"
             android:textSize="26sp"
@@ -40,6 +42,7 @@
             android:id="@+id/movieDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="movie description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
