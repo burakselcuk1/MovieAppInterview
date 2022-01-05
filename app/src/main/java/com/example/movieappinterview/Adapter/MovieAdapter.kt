@@ -9,7 +9,7 @@ import com.example.movieappinterview.R
 import com.example.movieappinterview.model.Result
 
 
-class MovieAdapter(private val dataSet: ArrayList<Result>) :
+class MovieAdapter( val dataSet: ArrayList<Result>) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     /**
@@ -48,7 +48,7 @@ class MovieAdapter(private val dataSet: ArrayList<Result>) :
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 
-    fun updataMovieList(movies : Array<Result>){
+    fun updataMovieList(movies : List<Result>){
         dataSet.clear()
         dataSet.addAll(movies)
         notifyDataSetChanged()

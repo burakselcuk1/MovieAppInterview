@@ -10,6 +10,7 @@ interface MovieDbInterface {
 
 //    https://api.themoviedb.org/3/movie/popular?api_key=6eeb39d6df396b3373f188208038112c
 
+
     @GET("/3/movie/popular?api_key=6eeb39d6df396b3373f188208038112c")
     fun getMovieList(): Single<List<Result>>
 
