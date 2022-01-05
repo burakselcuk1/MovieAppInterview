@@ -41,11 +41,17 @@ class MovieAdapter(private val dataSet: ArrayList<Result>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.description.text = dataSet[position].overview
-        viewHolder.movieName.text = dataSet[position].title
+        viewHolder.description.text = dataSet[position].overview.toString()
+        viewHolder.movieName.text = dataSet[position].original_title.toString()
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
+
+    fun updataMovieList(movies : Array<Result>){
+        dataSet.clear()
+        dataSet.addAll(movies)
+        notifyDataSetChanged()
+    }
 
 }
