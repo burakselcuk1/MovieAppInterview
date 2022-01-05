@@ -6,7 +6,7 @@
         android:id="@+id/dashboard_fragment"
         android:title="@string/menu_dashboard"
         android:contentDescription="@string/menu_dashboard"
-        android:icon="@drawable/ic_dashboard_white_24dp"/>
+        android:icon="@drawable/ic_baseline_dashboard_24"/>
 
 
 
@@ -14,12 +14,12 @@
         android:id="@+id/saved_fragment"
         android:title="@string/menu_saved"
         android:contentDescription="@string/menu_saved"
-        android:icon="@drawable/ic_store_white_24dp"/>
+        android:icon="@drawable/ic_baseline_turned_in_24"/>
 
     <item
         android:id="@+id/profile_fragment"
         android:title="@string/menu_profile"
         android:contentDescription="@string/menu_profile"
-        android:icon="@drawable/ic_person_outline_white_24dp"/>
+        android:icon="@drawable/ic_baseline_account_circle_24"/>
 
 </menu>
