@@ -42,8 +42,8 @@ class MovieAdapter( val dataSet: movie) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.description.text = dataSet.results.get(position).original_title
-        viewHolder.movieName.text = dataSet.results.get(position).overview
+        viewHolder.description.text = dataSet.results.get(position).overview
+        viewHolder.movieName.text = dataSet.results.get(position).original_title
     }
 
     // Return the size of your dataset (invoked by the layout manager)
