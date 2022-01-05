@@ -1,6 +1,6 @@
 package com.example.movieappinterview.api
 
-import com.example.movieappinterview.model.movie
+import com.example.movieappinterview.model.Result
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,7 +15,7 @@ class MovieDbApi {
         .build()
         .create(MovieDbInterface::class.java)
 
-    fun getMovie(cName: String): Single<List<movie>> {
+    fun getMovie(cName: String): Single<List<Result>> {
         return api.getMovieList(cName)
     }
 
