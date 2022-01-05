@@ -29,10 +29,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun showToast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
-
+    // Bottom navigation menu setup
     private fun setupSmoothBottomMenu() {
         val popupMenu = PopupMenu(this, null)
         popupMenu.inflate(R.menu.menu_bottom)
@@ -40,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         bottomBar.setupWithNavController(menu, navController)
     }
 
+
+    //For back proccess
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
