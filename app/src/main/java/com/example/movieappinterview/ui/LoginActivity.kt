@@ -55,11 +55,8 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
             }.addOnFailureListener{
                 Toast.makeText(this,"User didn't find!", Toast.LENGTH_SHORT).show()
-
             }
         }
-
-
     }
 
     private fun checkUser() {
