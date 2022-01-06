@@ -43,7 +43,7 @@ class DashboardFragment : Fragment() {
 
             movies?.let {
                 recyclerView.visibility = View.VISIBLE
-                movieAdapter = MovieAdapter(movies!!)
+                movieAdapter = MovieAdapter( movies!!)
                 recyclerView.adapter = movieAdapter
 
                 //    adapter.updataMovieList(it)

@@ -1,13 +1,18 @@
 package com.example.movieappinterview.Adapter
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.movieappinterview.R
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.model.movie
+import kotlinx.android.synthetic.main.single_movie_item.view.*
 
 
 class MovieAdapter( val dataSet: movie) :
@@ -20,11 +25,13 @@ class MovieAdapter( val dataSet: movie) :
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val description: TextView
         val movieName: TextView
+        val posterImage: ImageView
 
         init {
             // Define click listener for the ViewHolder's View.
             description = view.findViewById(R.id.movieDescription)
             movieName = view.findViewById(R.id.movieName)
+            posterImage = view.findViewById(R.id.movieImage)
         }
     }
 
@@ -44,6 +51,19 @@ class MovieAdapter( val dataSet: movie) :
         // contents of the view with that element
         viewHolder.description.text = dataSet.results.get(position).overview
         viewHolder.movieName.text = dataSet.results.get(position).original_title
+
+        val url ="https://image.tmdb.org/t/p/w342" +  dataSet.results.get(position).poster_path
+
+
+        viewHolder.itemView.apply {
+            Glide.with(this).load(url).into(viewHolder.itemView.movieImage)
+
+        }
+
+
+
+
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
