@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.movieappinterview.R
+import com.google.firebase.auth.FirebaseAuth
+
 
 
 class ProfileFragment : Fragment() {

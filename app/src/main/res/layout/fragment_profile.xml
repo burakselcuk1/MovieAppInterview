@@ -108,11 +108,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:text="+90 551 3883258"
             android:textStyle="bold"
-            android:gravity="center"
-
-            app:layout_constraintEnd_toEndOf="@+id/email"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
@@ -134,10 +133,12 @@
             android:id="@+id/usernamee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text=" : dewilsteam"
+            android:text="  dewilsteam"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.368"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
@@ -148,7 +149,7 @@
         android:id="@+id/updateUser"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/view_back"
+        android:background="@drawable/buttonbackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
         app:layout_constraintHeight_percent="0.06"
