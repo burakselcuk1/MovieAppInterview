@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movieappinterview.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 
-
+private lateinit var database: DatabaseReference
+private lateinit var auth : FirebaseAuth
 
 class ProfileFragment : Fragment() {
 
@@ -21,4 +23,8 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 }
