@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.movieappinterview.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 private lateinit var database: DatabaseReference
 private lateinit var auth : FirebaseAuth
