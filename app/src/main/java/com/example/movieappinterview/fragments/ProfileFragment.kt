@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.movieappinterview.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 private lateinit var database: DatabaseReference
@@ -33,6 +33,32 @@ class ProfileFragment : Fragment() {
             val action = ProfileFragmentDirections.actionProfileFragmentToUpdateProfileFragment()
             Navigation.findNavController(it).navigate(action)
         }
+
+        database = FirebaseDatabase.getInstance().getReference("users")
+        auth = FirebaseAuth.getInstance()
+        val uid = auth.currentUser?.uid
+        val ordersRef = database.child("$uid")
+
+        var getData = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                var username = snapshot.child("username").getValue()
+                usernamee.setText(username.toString())
+                var email = snapshot.child("email").getValue()
+                emaill.setText(email.toString())
+                var phone = snapshot.child("phone").getValue()
+                phonee.setText(phone.toString())
+
+
+                usernameee.setText(username.toString())
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        }
+        ordersRef.addValueEventListener(getData)
+        ordersRef.addListenerForSingleValueEvent(getData)
+
+
 
     }
 }
