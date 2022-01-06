@@ -1,13 +1,20 @@
 package com.example.movieappinterview.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.movieappinterview.R
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +31,25 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_menu, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+
+
+            R.id.logout -> {
+                Toast.makeText(this,"Logget Out!", Toast.LENGTH_SHORT).show()
+                firebaseAuth.signOut()
+                startActivity(
+                    Intent(this,LoginActivity::class.java)
+                )
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
     // Bottom navigation menu setup

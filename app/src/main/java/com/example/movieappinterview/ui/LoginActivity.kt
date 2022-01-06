@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
             singIn()
         }
     }
-
+        // singin into application
     private fun singIn() {
 
         val loginemail = login_email.text.toString().trim()
