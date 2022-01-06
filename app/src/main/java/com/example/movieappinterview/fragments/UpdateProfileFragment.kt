@@ -1,12 +1,18 @@
 package com.example.movieappinterview.fragments
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.movieappinterview.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 
+private lateinit var database: DatabaseReference
+private lateinit var auth : FirebaseAuth
+lateinit var ImageUrl : Uri
 
 class UpdateProfileFragment : Fragment() {
 
