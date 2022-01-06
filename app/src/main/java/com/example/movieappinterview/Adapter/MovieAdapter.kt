@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieappinterview.R
+import com.example.movieappinterview.fragments.DashboardFragment
+import com.example.movieappinterview.fragments.DashboardFragmentDirections
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.model.movie
 import kotlinx.android.synthetic.main.single_movie_item.view.*
@@ -57,7 +60,11 @@ class MovieAdapter( val dataSet: movie) :
 
         viewHolder.itemView.apply {
             Glide.with(this).load(url).into(viewHolder.itemView.movieImage)
+        }
 
+        viewHolder.itemView.setOnClickListener {
+            val action = DashboardFragmentDirections.actionDashboardFragmentToMovieDetailsFragment()
+            Navigation.findNavController(it).navigate(action)
         }
 
 
