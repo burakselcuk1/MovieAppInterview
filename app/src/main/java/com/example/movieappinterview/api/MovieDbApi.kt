@@ -21,6 +21,10 @@ class MovieDbApi {
     fun getMovie(): Single<movie> {
         return api.getMovieList()
     }
+
+    fun getMovieDetails(movieId:Int) : Single<Result>{
+        return api.getMovieDetails(movieId)
+    }
 }
 
 

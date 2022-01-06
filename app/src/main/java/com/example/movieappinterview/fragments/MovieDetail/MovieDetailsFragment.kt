@@ -33,4 +33,12 @@ class MovieDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_movie_details, container, false)
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val args = this.arguments
+        val inputData = args?.get("moviename")
+        movie_detail_title.setText(inputData.toString())
+    }
 }

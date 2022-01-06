@@ -18,5 +18,5 @@ interface MovieDbInterface {
 
     //get movie by id
     @GET("movie/{movie_id}")
-    fun getMovieDetails(@Path ("movie_id") id: Int) : Single<movie>
+    fun getMovieDetails(@Path ("movie_id") id: Int) : Single<Result>
 }
