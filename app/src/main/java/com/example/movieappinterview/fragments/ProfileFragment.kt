@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.movieappinterview.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -26,6 +27,12 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Goes to UpdateProfileFragment
+        updateUser.setOnClickListener {
+            val action = ProfileFragmentDirections.actionProfileFragmentToUpdateProfileFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
 
     }
 }
