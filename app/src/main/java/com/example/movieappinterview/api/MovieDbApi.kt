@@ -9,7 +9,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieDbApi {
 
+    // DETAIL LINK https://api.themoviedb.org/3/movie/299534?api_key=6eeb39d6df396b3373f188208038112c&language=en-US
+
     private val BASE_URL ="https://api.themoviedb.org/"
+    private val API_KEY = "6eeb39d6df396b3373f188208038112c"
+    private val LANGUAGE = ""
 
     private val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -22,7 +26,7 @@ class MovieDbApi {
         return api.getMovieList()
     }
 
-    fun getMovieDetails(movieId:Int) : Single<Result>{
+    fun getMovieDetails(movieId:String) : Single<Result>{
         return api.getMovieDetails(movieId)
     }
 }

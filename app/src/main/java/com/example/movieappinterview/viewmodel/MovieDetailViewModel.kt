@@ -20,7 +20,7 @@ class MovieDetailViewModel  : ViewModel() {
     val moviesDetail = MutableLiveData<Result>()
 
 
-    fun getMoviesDetail(movieId: Int){
+    fun getMoviesDetail(movieId: String){
         disposable.addAll(
             apiService.getMovieDetails(movieId).subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -32,7 +32,7 @@ class MovieDetailViewModel  : ViewModel() {
                     }
 
                     override fun onError(e: Throwable) {
-                        Log.e("burak", "başarısız")
+                        Log.e("burak", "başarısız "+e.toString())
                         e.printStackTrace()
                     }
 

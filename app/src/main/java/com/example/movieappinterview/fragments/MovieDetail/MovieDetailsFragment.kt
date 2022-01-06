@@ -5,14 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.movieappinterview.Adapter.MovieAdapter
 import com.example.movieappinterview.R
 
 import com.example.movieappinterview.api.MovieDbApi
 import com.example.movieappinterview.api.MovieDbInterface
 import com.example.movieappinterview.model.movie
+import com.example.movieappinterview.viewmodel.DashboardViewModel
 
 import com.example.movieappinterview.viewmodel.MovieDetailViewModel
 import kotlinx.android.synthetic.main.fragment_movie_details.*
@@ -22,7 +25,9 @@ import java.util.*
 
 class MovieDetailsFragment : Fragment() {
 
-    private lateinit var viewModel: MovieDetailViewModel
+    private lateinit var movieDetailViewModel: MovieDetailViewModel
+
+
 
 
     override fun onCreateView(
@@ -37,8 +42,24 @@ class MovieDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val args = this.arguments
-        val inputData = args?.get("moviename")
-        movie_detail_title.setText(inputData.toString())
+        val movieId: String? = args?.getString("movieId","databos")
+
+        //val movieId="299534"
+
+        movieDetailViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
+        movieDetailViewModel.getMoviesDetail(movieId!!)
+
+        getMoviesDetailFromApi()
+
+
+    }
+
+    private fun getMoviesDetailFromApi() {
+
+        movieDetailViewModel.moviesDetail.observe(viewLifecycleOwner, Observer{
+            movie_detail_title.text = it.original_title
+        })
     }
 }

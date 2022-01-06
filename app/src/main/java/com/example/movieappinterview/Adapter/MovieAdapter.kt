@@ -69,21 +69,22 @@ class MovieAdapter( val dataSet: movie) :
 
         viewHolder.itemView.setOnClickListener {
 
-            //geldm
+            //1. YONTEM OLARAK PUT İLE FRAGMENTLAR ARASI VERİ ALIŞVERİİŞİ YAPTIM. AMA DAHA SONRA CDFGFHFJHFG,
+
            val bundle = Bundle()
-            bundle.putString("moviename", result.original_title)
+           bundle.putString("movieId", ""+result.id)
 
-            val fragment = MovieDetailsFragment()
-            fragment.arguments = bundle
+          //  val fragment = MovieDetailsFragment()
+          //  fragment.arguments = bundle
 
 
 
-            val action = DashboardFragmentDirections.actionDashboardFragmentToMovieDetailsFragment()
+         //   val action = DashboardFragmentDirections.actionDashboardFragmentToMovieDetailsFragment()
             // Navigation.findNavController().navigate(action, bundle)
 
             val navigationController = Navigation.findNavController(viewHolder.itemView)
-
             navigationController.navigate(R.id.movieDetailsFragment,bundle!!)
+
         }
 
 
