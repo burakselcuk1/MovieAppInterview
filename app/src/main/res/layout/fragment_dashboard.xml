@@ -38,8 +38,9 @@
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#D6D6D6"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.08"
+        android:background="@drawable/circle_searchview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
