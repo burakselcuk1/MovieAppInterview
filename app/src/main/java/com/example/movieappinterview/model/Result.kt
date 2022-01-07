@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,
-
     @PrimaryKey(autoGenerate = true)
     @SerializedName("id")
     val id: Int,
