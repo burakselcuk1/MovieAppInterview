@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.movieappinterview.Adapter.MovieAdapter
 import com.example.movieappinterview.R
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.viewmodel.MovieDetailViewModel
@@ -18,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_movie_details.*
 class SavedFragment : Fragment() {
 
     private lateinit var savedMovieViewModel: SavedMovieViewModel
+    lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +52,7 @@ class SavedFragment : Fragment() {
             it.original_title, it.video, it.vote_average, it.vote_count)
             savedMovieViewModel.addMovie(saveMovie)
             Toast.makeText(context,"Successfully Added!", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_movieDetailsFragment_to_savedFragment)
         })
     }
 }
