@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.movieappinterview.Adapter.MovieAdapter
 import com.example.movieappinterview.R
 
@@ -66,6 +67,10 @@ class MovieDetailsFragment : Fragment() {
             Glide.with(this)
                 .load(moviePosterUrl)
                 .into(movie_detail_poster)
+
+            Glide.with(this)
+                .load(moviePosterUrl)
+                .into(main_poster)
         })
     }
 }

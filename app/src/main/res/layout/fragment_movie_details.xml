@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MovieDetail.MovieDetailsFragment">
 
 
@@ -37,14 +38,45 @@
                 android:orientation="vertical"
                 android:id="@+id/linearLayout">
 
+               <androidx.constraintlayout.widget.ConstraintLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/movie_detail_poster"
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:layout_gravity="center"
-                    android:scaleType="matrix"
-                   />
+                   <androidx.cardview.widget.CardView
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_margin="5dp"
+                       android:elevation="10dp"
+                       app:cardCornerRadius="8dp"
+                       app:layout_constraintBottom_toBottomOf="@+id/movie_detail_poster"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toTopOf="parent">
+
+                       <ImageView
+                           android:id="@+id/main_poster"
+                           android:layout_width="100dp"
+                           android:layout_height="100dp"
+                           android:background="@color/white"
+                           android:scaleType="centerCrop"
+                            />
+                   </androidx.cardview.widget.CardView>
+
+                   <ImageView
+                       android:id="@+id/movie_detail_poster"
+                       android:layout_width="match_parent"
+                       android:layout_height="500dp"
+                       android:layout_gravity="center"
+                       android:alpha="0.4"
+                       android:scaleType="matrix"
+                       app:layout_constraintEnd_toEndOf="parent"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toTopOf="parent" />
+               </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
