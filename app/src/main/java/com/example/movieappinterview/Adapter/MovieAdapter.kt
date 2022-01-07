@@ -23,10 +23,7 @@ import kotlinx.android.synthetic.main.single_movie_item.view.*
 class MovieAdapter( val dataSet: movie) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val description: TextView
         val movieName: TextView
@@ -69,27 +66,21 @@ class MovieAdapter( val dataSet: movie) :
 
         viewHolder.itemView.setOnClickListener {
 
-            //1. YONTEM OLARAK PUT İLE FRAGMENTLAR ARASI VERİ ALIŞVERİİŞİ YAPTIM. AMA DAHA SONRA CDFGFHFJHFG,
-
            val bundle = Bundle()
            bundle.putString("movieId", ""+result.id)
 
-          //  val fragment = MovieDetailsFragment()
-          //  fragment.arguments = bundle
-
-
-
-         //   val action = DashboardFragmentDirections.actionDashboardFragmentToMovieDetailsFragment()
-            // Navigation.findNavController().navigate(action, bundle)
+            //1. YONTEM OLARAK PUT İLE FRAGMENTLAR ARASI VERİ ALIŞVERİİŞİ YAPTIM. AMA DAHA SONRA CDFGFHFJHFG,
+          /*
+           val fragment = MovieDetailsFragment()
+           fragment.arguments = bundle
+           val action = DashboardFragmentDirections.actionDashboardFragmentToMovieDetailsFragment()
+           Navigation.findNavController().navigate(action, bundle)
+        */
 
             val navigationController = Navigation.findNavController(viewHolder.itemView)
             navigationController.navigate(R.id.movieDetailsFragment,bundle!!)
 
         }
-
-
-
-
 
     }
 
