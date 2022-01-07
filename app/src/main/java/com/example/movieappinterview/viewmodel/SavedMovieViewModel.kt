@@ -25,6 +25,8 @@ class SavedMovieViewModel(application: Application): AndroidViewModel(applicatio
     private val apiService = MovieDbApi()
     private val disposable = CompositeDisposable()
 
+    val TAG: String = "TAG_SavedMovieViewModel"
+
     val moviesDetail = MutableLiveData<Result>()
     init {
         val movieDao = MovieDatabase.getDatabase(application).movieDao()
@@ -37,6 +39,7 @@ class SavedMovieViewModel(application: Application): AndroidViewModel(applicatio
 
     fun addMovie(movie: Result){
         viewModelScope.launch(Dispatchers.IO){
+            Log.e(TAG,"addmovie girdi")
             repository.addMovie(movie)
         }
     }
