@@ -15,5 +15,5 @@ interface Dao {
     suspend fun addMovie(movie : Result)
 
     @Query("SELECT * FROM movie_data ORDER BY id ASC")
-    suspend fun readAllData(): LiveData<List<Result>>
+     fun readAllData(): LiveData<List<Result>>
 }

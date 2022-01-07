@@ -1,4 +1,14 @@
 package com.example.db
 
-class MovieRepository {
+import androidx.lifecycle.LiveData
+import com.example.movieappinterview.model.Result
+
+class MovieRepository(private val movieDao: Dao) {
+
+    val readAllData: LiveData<List<Result>> = movieDao.readAllData()
+
+    suspend fun addUser(movie: Result){
+        movieDao.addMovie(movie)
+    }
+
 }
