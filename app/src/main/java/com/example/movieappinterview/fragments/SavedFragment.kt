@@ -24,9 +24,9 @@ import kotlinx.android.synthetic.main.fragment_saved.*
 class SavedFragment : Fragment() {
 
     private lateinit var savedMovieViewModel: SavedMovieViewModel
-   private lateinit var roomAdater: RoomAdapter
-
-   val TAG:String = "TAG_SavedFragment"
+    private lateinit var roomAdater: RoomAdapter
+    private lateinit var singleMovieData:Result
+    val TAG:String = "TAG_SavedFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +34,7 @@ class SavedFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val singleMovieData:Result = requireArguments().getSerializable("movie") as Result
+        singleMovieData = requireArguments().getSerializable("movie") as Result
         singleMovieData.let {
             Log.e(TAG,"bos degil movie data" + singleMovieData.title)
         }
@@ -45,6 +45,9 @@ class SavedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
+
+
         //get movie id throught args
         val args = this.arguments
         val movieId: String? = args?.getString("movieId","databos")
@@ -52,21 +55,31 @@ class SavedFragment : Fragment() {
         // Setup saved_movie_recyclerview to Movie Adapter
         saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
 
+        val saveMovie = Result(singleMovieData.adult,
+            singleMovieData.backdrop_path,
+            singleMovieData.id,
+            singleMovieData.original_language,
+            singleMovieData.original_title,
+            singleMovieData.overview,
+            singleMovieData.popularity,
+            singleMovieData.poster_path,
+            singleMovieData.release_date,
+            singleMovieData.original_title,
+            singleMovieData.video,
+            singleMovieData.vote_average,
+            singleMovieData.vote_count)
+        savedMovieViewModel.addMovie(saveMovie)
 
-
-        savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
 
         //Get Movie Detail information from api and save to room db
-        getMovieDetailFromApiForSave()
+      //  getMovieDetailFromApiForSave()
 
     }
 
     private fun getMovieDetailFromApiForSave() {
         savedMovieViewModel.moviesDetail.observe(viewLifecycleOwner, Observer {
             //Create new object from Result data class for add savedMovieViewModel.addMovie function
-            val saveMovie = Result(it.adult, it.backdrop_path, it.id, it.original_language, it.original_title, it.overview, it.popularity, it.poster_path, it.release_date,
-            it.original_title, it.video, it.vote_average, it.vote_count)
-            savedMovieViewModel.addMovie(saveMovie)
+
             Toast.makeText(context,"Successfully Added!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_movieDetailsFragment_to_savedFragment)
         })
