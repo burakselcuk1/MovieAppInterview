@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.movieappinterview.model.Result
 
-@Database(entities = [Result::class], version = 1, exportSchema = false)
+@Database(entities = [Result::class], version = 2, exportSchema = false)
 abstract class MovieDatabase: RoomDatabase() {
 
     abstract fun movieDao(): Dao
@@ -27,7 +27,7 @@ abstract class MovieDatabase: RoomDatabase() {
                     context.applicationContext,
                     MovieDatabase::class.java,
                     "movie_data"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE =instance
                 return instance
             }
