@@ -1,4 +1,4 @@
-package com.example.movieappinterview.ui
+package com.example.movieappinterview.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

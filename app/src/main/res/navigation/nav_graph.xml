@@ -39,7 +39,11 @@
         android:id="@+id/movieDetailsFragment"
         android:name="com.example.movieappinterview.fragments.MovieDetail.MovieDetailsFragment"
         android:label="fragment_movie_details"
-        tools:layout="@layout/fragment_movie_details" />
+        tools:layout="@layout/fragment_movie_details" >
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
+    </fragment>
     <fragment
         android:id="@+id/updateProfileFragment"
         android:name="com.example.movieappinterview.fragments.UpdateProfileFragment"

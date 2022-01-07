@@ -28,9 +28,6 @@ class MovieDetailsFragment : Fragment() {
 
     private lateinit var movieDetailViewModel: MovieDetailViewModel
 
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,14 +44,10 @@ class MovieDetailsFragment : Fragment() {
         val args = this.arguments
         val movieId: String? = args?.getString("movieId","databos")
 
-        //val movieId="299534"
 
         movieDetailViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
         movieDetailViewModel.getMoviesDetail(movieId!!)
-
         getMoviesDetailFromApi()
-
-
     }
 
     //Get movie detail information from api and paste fragment_movie_detail.xml page
