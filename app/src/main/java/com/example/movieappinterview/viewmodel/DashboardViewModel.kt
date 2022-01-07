@@ -26,7 +26,7 @@ class DashboardViewModel: ViewModel() {
                 .subscribeWith(object : DisposableSingleObserver<movie>(){
                     override fun onSuccess(t: movie) {
                         movies.value = t
-                        Log.e("burak", "başarılı" + t.toString())
+                        //Log.e("burak", "başarılı" + t.toString())
                     }
 
                     override fun onError(e: Throwable) {
