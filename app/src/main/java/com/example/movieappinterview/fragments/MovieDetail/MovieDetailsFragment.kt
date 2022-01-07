@@ -54,6 +54,7 @@ class MovieDetailsFragment : Fragment() {
     private fun getMoviesDetailFromApi() {
 
         movieDetailViewModel.moviesDetail.observe(viewLifecycleOwner, Observer{
+            //set values into detailFragment components
             movie_detail_title.text = it.original_title
             movie_detail_tagline.text = it.overview
             val moviePosterUrl= "https://image.tmdb.org/t/p/w342/" + it.poster_path
