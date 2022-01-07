@@ -1,11 +1,15 @@
 package com.example.movieappinterview.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "movie_data")
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("id")
     val id: Int,
     val original_language: String,
