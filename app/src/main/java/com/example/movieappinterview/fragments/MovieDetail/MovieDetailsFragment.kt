@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.movieappinterview.Adapter.MovieAdapter
@@ -44,10 +45,16 @@ class MovieDetailsFragment : Fragment() {
         val args = this.arguments
         val movieId: String? = args?.getString("movieId","databos")
 
-
+        //MovieViewModel definitions
         movieDetailViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
         movieDetailViewModel.getMoviesDetail(movieId!!)
         getMoviesDetailFromApi()
+
+        //Goes to SavedFragments
+        save_movie_button.setOnClickListener {
+            val action = MovieDetailsFragmentDirections.actionMovieDetailsFragmentToSavedFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     //Get movie detail information from api and paste fragment_movie_detail.xml page
