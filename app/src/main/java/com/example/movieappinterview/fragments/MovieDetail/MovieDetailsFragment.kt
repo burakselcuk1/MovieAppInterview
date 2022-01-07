@@ -1,33 +1,30 @@
 package com.example.movieappinterview.fragments.MovieDetail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions.bitmapTransform
-import com.example.movieappinterview.Adapter.MovieAdapter
 import com.example.movieappinterview.R
 
-import com.example.movieappinterview.api.MovieDbApi
-import com.example.movieappinterview.api.MovieDbInterface
-import com.example.movieappinterview.model.movie
-import com.example.movieappinterview.viewmodel.DashboardViewModel
+import com.example.movieappinterview.model.Result
 
 import com.example.movieappinterview.viewmodel.MovieDetailViewModel
 import kotlinx.android.synthetic.main.fragment_movie_details.*
-import java.text.NumberFormat
-import java.util.*
 
 
 class MovieDetailsFragment : Fragment() {
 
     private lateinit var movieDetailViewModel: MovieDetailViewModel
+    lateinit var resultMovie:Result
+
+    val TAG: String ="TAG_MovieFragment"
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,17 +59,24 @@ class MovieDetailsFragment : Fragment() {
 
         movieDetailViewModel.moviesDetail.observe(viewLifecycleOwner, Observer{
             //set values into detailFragment components
-            movie_detail_title.text = it.original_title
-            movie_detail_tagline.text = it.overview
-            val moviePosterUrl= "https://image.tmdb.org/t/p/w342/" + it.poster_path
-            val movieBackDropPath ="https://image.tmdb.org/t/p/w342/" + it.backdrop_path
-            Glide.with(this)
-                .load(moviePosterUrl)
-                .into(movie_detail_poster)
 
-            Glide.with(this)
-                .load(movieBackDropPath)
-                .into(main_poster)
+            it.let {
+                resultMovie = it
+
+                movie_detail_title.text = resultMovie.original_title
+                movie_detail_tagline.text = resultMovie.overview
+                val moviePosterUrl= "https://image.tmdb.org/t/p/w342/" + resultMovie.poster_path
+                val movieBackDropPath ="https://image.tmdb.org/t/p/w342/" + resultMovie.backdrop_path
+                Glide.with(this)
+                    .load(moviePosterUrl)
+                    .into(movie_detail_poster)
+
+                Glide.with(this)
+                    .load(movieBackDropPath)
+                    .into(main_poster)
+            }
+
+
         })
     }
 }
