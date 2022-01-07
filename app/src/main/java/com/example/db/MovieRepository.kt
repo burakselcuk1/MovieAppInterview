@@ -7,7 +7,7 @@ class MovieRepository(private val movieDao: Dao) {
 
     val readAllData: LiveData<List<Result>> = movieDao.readAllData()
 
-    suspend fun addUser(movie: Result){
+    suspend fun addMovie(movie: Result){
         movieDao.addMovie(movie)
     }
 
