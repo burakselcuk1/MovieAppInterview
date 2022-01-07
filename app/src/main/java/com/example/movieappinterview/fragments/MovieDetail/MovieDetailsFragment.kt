@@ -56,6 +56,7 @@ class MovieDetailsFragment : Fragment() {
 
     }
 
+    //Get movie detail information from api and paste fragment_movie_detail.xml page
     private fun getMoviesDetailFromApi() {
 
         movieDetailViewModel.moviesDetail.observe(viewLifecycleOwner, Observer{
