@@ -49,8 +49,18 @@ class MovieDetailsFragment : Fragment() {
 
         //Goes to SavedFragments
         save_movie_button.setOnClickListener {
-            val action = MovieDetailsFragmentDirections.actionMovieDetailsFragmentToSavedFragment()
-            Navigation.findNavController(it).navigate(action)
+
+            var bundle = Bundle()
+
+            resultMovie.let {
+                bundle.putSerializable("movie", resultMovie)
+
+                val navigationController = Navigation.findNavController(view)
+                navigationController.navigate(R.id.action_movieDetailsFragment_to_savedFragment, bundle)
+
+            }?: Log.e(TAG,"resultmovie başarısız")
+
+
         }
     }
 

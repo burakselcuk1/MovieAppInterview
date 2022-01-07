@@ -1,6 +1,7 @@
 package com.example.movieappinterview.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieappinterview.Adapter.MovieAdapter
+import com.example.movieappinterview.Adapter.RoomAdapter
 import com.example.movieappinterview.R
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.viewmodel.MovieDetailViewModel
@@ -22,13 +24,21 @@ import kotlinx.android.synthetic.main.fragment_saved.*
 class SavedFragment : Fragment() {
 
     private lateinit var savedMovieViewModel: SavedMovieViewModel
-    lateinit var movieAdapter: MovieAdapter
+   private lateinit var roomAdater: RoomAdapter
+
+   val TAG:String = "TAG_SavedFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        val singleMovieData:Result = requireArguments().getSerializable("movie") as Result
+        singleMovieData.let {
+            Log.e(TAG,"bos degil movie data" + singleMovieData.title)
+        }
+
         return inflater.inflate(R.layout.fragment_saved, container, false)
     }
 
@@ -41,7 +51,7 @@ class SavedFragment : Fragment() {
 
         // Setup saved_movie_recyclerview to Movie Adapter
         saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
-        saved_movie_recyclerview.adapter = movieAdapter
+
 
 
         savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
