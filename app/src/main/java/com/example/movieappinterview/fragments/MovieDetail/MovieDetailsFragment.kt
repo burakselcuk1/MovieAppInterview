@@ -60,6 +60,11 @@ class MovieDetailsFragment : Fragment() {
 
         movieDetailViewModel.moviesDetail.observe(viewLifecycleOwner, Observer{
             movie_detail_title.text = it.original_title
+            movie_detail_tagline.text = it.overview
+            val moviePosterUrl= "https://image.tmdb.org/t/p/w342/" + it.poster_path
+            Glide.with(this)
+                .load(moviePosterUrl)
+                .into(movie_detail_poster)
         })
     }
 }
