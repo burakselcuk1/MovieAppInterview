@@ -10,8 +10,7 @@ import com.example.movieappinterview.model.Result
 @Dao
 interface Dao {
 
-    //Add new movie into to room db
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)  // or OnConflictStrategy.IGNORE    @Insert
     suspend fun addMovie(movie : Result)
 
     @Query("SELECT * FROM movie_data ORDER BY id ASC")
