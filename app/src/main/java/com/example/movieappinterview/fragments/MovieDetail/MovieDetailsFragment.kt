@@ -40,7 +40,7 @@ class MovieDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        //get movie id throught args
         val args = this.arguments
         val movieId: String? = args?.getString("movieId","databos")
 
