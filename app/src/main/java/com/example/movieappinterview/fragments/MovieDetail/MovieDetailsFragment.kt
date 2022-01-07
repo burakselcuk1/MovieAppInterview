@@ -64,6 +64,7 @@ class MovieDetailsFragment : Fragment() {
             movie_detail_title.text = it.original_title
             movie_detail_tagline.text = it.overview
             val moviePosterUrl= "https://image.tmdb.org/t/p/w342/" + it.poster_path
+            val movieBackDropPath ="https://image.tmdb.org/t/p/w342/" + it.backdrop_path
             Glide.with(this)
                 .load(moviePosterUrl)
                 .into(movie_detail_poster)
