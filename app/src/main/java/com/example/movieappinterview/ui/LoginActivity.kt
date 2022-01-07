@@ -38,14 +38,16 @@ class LoginActivity : AppCompatActivity() {
         val loginemail = login_email.text.toString().trim()
         val loginPassword = login_password.text.toString().trim()
 
-
+        //check e-mail empty or not
         if(loginemail.isEmpty()){
             Toast.makeText(this,"E-mail can not be empty!", Toast.LENGTH_SHORT).show()
         }
+        // compare e-mail adreess with real e-mail type
         else if(!Patterns.EMAIL_ADDRESS.matcher(loginemail).matches()){
             Toast.makeText(this,"Invalid E-mail adress!", Toast.LENGTH_SHORT).show()
 
         }
+        //check password is empty or not
         else if(loginPassword.isEmpty()){
             Toast.makeText(this,"Password can not be empty!", Toast.LENGTH_SHORT).show()
         }
@@ -67,7 +69,5 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 }

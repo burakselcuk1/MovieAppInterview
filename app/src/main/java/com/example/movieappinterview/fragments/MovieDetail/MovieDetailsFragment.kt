@@ -64,7 +64,7 @@ class MovieDetailsFragment : Fragment() {
                 .into(movie_detail_poster)
 
             Glide.with(this)
-                .load(moviePosterUrl)
+                .load(movieBackDropPath)
                 .into(main_poster)
         })
     }
