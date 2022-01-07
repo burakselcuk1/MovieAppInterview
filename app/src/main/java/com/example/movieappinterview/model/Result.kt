@@ -9,7 +9,7 @@ import java.io.Serializable
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     @SerializedName("id")
     val id: Int,
     val original_language: String,
