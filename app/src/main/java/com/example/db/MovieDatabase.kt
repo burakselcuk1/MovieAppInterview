@@ -17,9 +17,6 @@ abstract class MovieDatabase: RoomDatabase() {
         private var INSTANCE: MovieDatabase? = null
 
 
-        private val lock = Any()
-
-
        fun getDatabase(context: Context): MovieDatabase{
             val tempInstance = INSTANCE
             if (tempInstance!=null){
