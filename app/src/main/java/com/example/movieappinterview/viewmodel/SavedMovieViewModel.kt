@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 
 class SavedMovieViewModel(application: Application): AndroidViewModel(application) {
 
-    private val readAllData: LiveData<List<Result>>
+    val readAllData: LiveData<List<Result>>
     private val repository: MovieRepository
 
     private val apiService = MovieDbApi()
