@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieappinterview.Adapter.MovieAdapter
 import com.example.movieappinterview.R
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.viewmodel.MovieDetailViewModel
 import com.example.movieappinterview.viewmodel.SavedMovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie_details.*
+import kotlinx.android.synthetic.main.fragment_saved.*
 
 
 class SavedFragment : Fragment() {
@@ -36,6 +38,10 @@ class SavedFragment : Fragment() {
         //get movie id throught args
         val args = this.arguments
         val movieId: String? = args?.getString("movieId","databos")
+
+        // Setup saved_movie_recyclerview to Movie Adapter
+        saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
+        saved_movie_recyclerview.adapter = movieAdapter
 
 
         savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
