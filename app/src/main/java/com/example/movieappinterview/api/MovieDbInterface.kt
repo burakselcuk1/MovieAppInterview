@@ -3,8 +3,10 @@ package com.example.movieappinterview.api
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.model.movie
 import io.reactivex.Single
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MovieDbInterface {
 
@@ -19,4 +21,7 @@ interface MovieDbInterface {
     //get movie by id
     @GET("3/movie/{movie_id}?api_key=6eeb39d6df396b3373f188208038112c&language=en-US")
     fun getMovieDetails(@Path ("movie_id") id: String) : Single<Result>
+
+    @GET("3/movie/popular?api_key=6eeb39d6df396b3373f188208038112c")
+    fun searchForMovie(): Response<movie>
 }
