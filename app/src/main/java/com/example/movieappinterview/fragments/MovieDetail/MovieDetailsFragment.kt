@@ -86,7 +86,6 @@ class MovieDetailsFragment : Fragment() {
                     .into(main_poster)
             }
 
-
         })
     }
 }
