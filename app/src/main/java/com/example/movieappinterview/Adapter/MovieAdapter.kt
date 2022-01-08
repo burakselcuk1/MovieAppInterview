@@ -69,7 +69,7 @@ class MovieAdapter( val dataSet: movie) :
            val bundle = Bundle()
            bundle.putString("movieId", ""+result.id)
 
-            //1. YONTEM OLARAK PUT İLE FRAGMENTLAR ARASI VERİ ALIŞVERİİŞİ YAPTIM. AMA DAHA SONRA CDFGFHFJHFG,
+            //First method pass data throught arguments
           /*
            val fragment = MovieDetailsFragment()
            fragment.arguments = bundle
@@ -81,7 +81,6 @@ class MovieAdapter( val dataSet: movie) :
             navigationController.navigate(R.id.movieDetailsFragment,bundle!!)
 
         }
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
