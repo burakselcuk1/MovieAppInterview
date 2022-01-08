@@ -34,6 +34,7 @@ class DashboardFragment : Fragment() {
         dashboardViewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
         dashboardViewModel.getMovies()
 
+        //Recycler Setup
         recyclerView.layoutManager = LinearLayoutManager(context)
         getMoviesFromApi()
     }
