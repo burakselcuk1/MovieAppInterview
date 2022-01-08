@@ -1,5 +1,6 @@
 package com.example.movieappinterview.api
 
+import com.example.movieappinterview.Util.Constans.Companion.BASE_URL
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.model.movie
 import io.reactivex.Single
@@ -11,7 +12,6 @@ class MovieDbApi {
 
     // DETAIL LINK https://api.themoviedb.org/3/movie/299534?api_key=6eeb39d6df396b3373f188208038112c&language=en-US
 
-    private val BASE_URL ="https://api.themoviedb.org/"
     private val API_KEY = "6eeb39d6df396b3373f188208038112c"
     private val LANGUAGE = ""
 
