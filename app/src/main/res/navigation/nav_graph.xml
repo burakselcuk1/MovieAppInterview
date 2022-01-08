@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedFragment"
@@ -49,4 +52,9 @@
         android:name="com.example.movieappinterview.fragments.UpdateProfileFragment"
         android:label="fragment_update_profile"
         tools:layout="@layout/fragment_update_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.movieappinterview.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
