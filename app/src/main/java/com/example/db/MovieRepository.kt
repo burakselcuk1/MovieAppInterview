@@ -6,14 +6,20 @@ import com.example.movieappinterview.model.Result
 
 class MovieRepository(private val movieDao: Dao) {
 
-    val TAG: String = "TAG_MovieRepository"
+
 
 
     val readAllData: LiveData<List<Result>> = movieDao.readAllData()
 
+
+     // Add a new movie to RoomDB
     suspend fun addMovie(movie: Result){
-        Log.e(TAG,"girdi-movie2")
         movieDao.addMovie(movie)
+    }
+
+    //Delete a single movie from RoomDb
+    suspend fun deleteMovieFromRoomDb(movie: Result){
+        movieDao.deleteMovie(movie)
     }
 
 }
