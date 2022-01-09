@@ -27,7 +27,7 @@ class SavedMovieViewModel(application: Application): AndroidViewModel(applicatio
 
     val TAG: String = "TAG_SavedMovieViewModel"
 
-    val moviesDetail = MutableLiveData<Result>()
+    val moviesSaved = MutableLiveData<Result>()
     init {
         val movieDao = MovieDatabase.getDatabase(application).movieDao()
         repository = MovieRepository(movieDao)
@@ -39,29 +39,12 @@ class SavedMovieViewModel(application: Application): AndroidViewModel(applicatio
 
     fun addMovie(movie: Result){
         viewModelScope.launch(Dispatchers.IO){
+
             Log.e(TAG,"addmovie girdi")
             repository.addMovie(movie)
         }
     }
 
-    fun getMoviesDetail(movieId: String){
-        disposable.addAll(
-            apiService.getMovieDetails(movieId).subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<Result>(){
 
-                    override fun onSuccess(t: Result) {
-                        moviesDetail.value = t
-                        Log.e("burak", "başarılı" + t.toString())
-                    }
-
-                    override fun onError(e: Throwable) {
-                        Log.e("burak", "başarısız "+e.toString())
-                        e.printStackTrace()
-                    }
-
-                })
-        )
-    }
 
 }
