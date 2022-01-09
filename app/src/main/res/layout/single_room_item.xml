@@ -26,6 +26,14 @@
         app:layout_constraintStart_toEndOf="@+id/room_movieImage"
         tools:layout_editor_absoluteY="30dp">
 
+        <ImageView
+            android:id="@+id/delete_item_to_room_db"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_baseline_delete_24"
+            app:layout_constraintBottom_toTopOf="@+id/room_movieName"
+            app:layout_constraintEnd_toEndOf="@+id/room_movieName"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/room_movieName"
