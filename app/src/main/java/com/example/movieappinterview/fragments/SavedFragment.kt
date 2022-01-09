@@ -27,17 +27,16 @@ class SavedFragment : Fragment() {
     private lateinit var savedMovieViewModel: SavedMovieViewModel
     private lateinit var roomAdater: RoomAdapter
     private lateinit var singleMovieData:Result
-    val TAG:String = "TAG_SavedFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
 
         singleMovieData = requireArguments().getSerializable("movie") as Result
         singleMovieData.let {
-            Log.e(TAG,"bos degil movie data" + singleMovieData.title)
+
         }
 
         return inflater.inflate(R.layout.fragment_saved, container, false)
@@ -46,11 +45,12 @@ class SavedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Setup saved_movie_recyclerview to Movie Adapter
         saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
+        // Setup savedMovieViewModel to SavedViewModel
         savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
 
 
-        // Setup saved_movie_recyclerview to Movie Adapter
 
         val saveMovie = Result(singleMovieData.adult,
             singleMovieData.backdrop_path,
