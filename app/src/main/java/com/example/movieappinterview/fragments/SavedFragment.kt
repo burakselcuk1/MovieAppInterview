@@ -19,6 +19,7 @@ import com.example.movieappinterview.viewmodel.MovieDetailViewModel
 import com.example.movieappinterview.viewmodel.SavedMovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie_details.*
 import kotlinx.android.synthetic.main.fragment_saved.*
+import java.io.Serializable
 
 
 class SavedFragment : Fragment() {
@@ -45,15 +46,11 @@ class SavedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
         savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
 
 
-        //get movie id throught args
-        val args = this.arguments
-        val movieId: String? = args?.getString("movieId","databos")
-
         // Setup saved_movie_recyclerview to Movie Adapter
-        saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
 
         val saveMovie = Result(singleMovieData.adult,
             singleMovieData.backdrop_path,
@@ -68,20 +65,18 @@ class SavedFragment : Fragment() {
             singleMovieData.video,
             singleMovieData.vote_average,
             singleMovieData.vote_count)
+
+
         savedMovieViewModel.addMovie(saveMovie)
 
 
-        //Get Movie Detail information from api and save to room db
-      //  getMovieDetailFromApiForSave()
+        savedMovieViewModel.readAllData.observe(viewLifecycleOwner, Observer {
+            roomAdater = RoomAdapter(it as ArrayList<Result>)
 
-    }
+            saved_movie_recyclerview.adapter = roomAdater
 
-    private fun getMovieDetailFromApiForSave() {
-        savedMovieViewModel.moviesDetail.observe(viewLifecycleOwner, Observer {
-            //Create new object from Result data class for add savedMovieViewModel.addMovie function
-
-            Toast.makeText(context,"Successfully Added!", Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_movieDetailsFragment_to_savedFragment)
         })
+
     }
+
 }
