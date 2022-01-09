@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.example.movieappinterview.fragments.DashboardFragment"
-        android:label="fragment_dashboard"
+        android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
             android:id="@+id/action_dashboardFragment_to_savedFragment"
@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/savedFragment"
         android:name="com.example.movieappinterview.fragments.SavedFragment"
-        android:label="fragment_saved"
+        android:label="Saved Movies"
         tools:layout="@layout/fragment_saved" >
         <action
             android:id="@+id/action_savedFragment_to_profileFragment"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.movieappinterview.fragments.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_updateProfileFragment"
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/movieDetailsFragment"
         android:name="com.example.movieappinterview.fragments.MovieDetail.MovieDetailsFragment"
-        android:label="fragment_movie_details"
+        android:label="Movie Detail"
         tools:layout="@layout/fragment_movie_details" >
         <action
             android:id="@+id/action_movieDetailsFragment_to_savedFragment"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/updateProfileFragment"
         android:name="com.example.movieappinterview.fragments.UpdateProfileFragment"
-        android:label="fragment_update_profile"
+        android:label="Update Profile"
         tools:layout="@layout/fragment_update_profile" />
     <fragment
         android:id="@+id/searchFragment"
