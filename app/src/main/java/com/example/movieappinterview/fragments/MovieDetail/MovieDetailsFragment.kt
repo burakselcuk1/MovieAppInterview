@@ -58,7 +58,7 @@ class MovieDetailsFragment : Fragment() {
                 val navigationController = Navigation.findNavController(view)
                 navigationController.navigate(R.id.action_movieDetailsFragment_to_savedFragment, bundle)
 
-            }?: Log.e(TAG,"resultmovie başarısız")
+            }
 
 
         }
