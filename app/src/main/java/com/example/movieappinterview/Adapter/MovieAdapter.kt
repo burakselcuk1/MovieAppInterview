@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieappinterview.R
+import com.example.movieappinterview.Util.Constans.Companion.POSTER_MAIN_URL
 import com.example.movieappinterview.fragments.DashboardFragmentDirections
 import com.example.movieappinterview.fragments.MovieDetail.MovieDetailsFragment
 import com.example.movieappinterview.model.Result
@@ -57,7 +58,7 @@ class MovieAdapter( val dataSet: movie) :
         viewHolder.description.text = result.overview
         viewHolder.movieName.text = result.original_title
 
-        val url ="https://image.tmdb.org/t/p/w342" +  dataSet.results.get(position).poster_path
+        val url =POSTER_MAIN_URL +  dataSet.results.get(position).poster_path
 
 
         viewHolder.itemView.apply {
