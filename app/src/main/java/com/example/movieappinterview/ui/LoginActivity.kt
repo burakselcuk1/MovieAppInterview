@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        loginButton.setOnClickListener {
+        login_button.setOnClickListener {
             singIn()
         }
     }
