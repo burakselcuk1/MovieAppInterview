@@ -1,5 +1,6 @@
 package com.example.movieappinterview.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import com.example.movieappinterview.viewmodel.MovieDetailViewModel
 import com.example.movieappinterview.viewmodel.SavedMovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie_details.*
 import kotlinx.android.synthetic.main.fragment_saved.*
+import kotlinx.android.synthetic.main.single_room_item.*
 import java.io.Serializable
 
 
@@ -76,6 +78,9 @@ class SavedFragment : Fragment() {
 
         })
 
+
+
     }
+
 
 }
