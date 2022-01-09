@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "693303878388",
+    "project_id": "movieappinterview",
+    "storage_bucket": "movieappinterview.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693303878388:android:bfa503b25fcff3452cb4a1",
+        "android_client_info": {
+          "package_name": "com.example.movieappinterview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693303878388-3trqp0dog13ai26qgnhoarhueh7rim1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVr5xx-MvCeP6hNQIiaYQEAf8qmjpqLjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693303878388-3trqp0dog13ai26qgnhoarhueh7rim1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
