@@ -42,17 +42,16 @@ class SavedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
-
-
         return inflater.inflate(R.layout.fragment_saved, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // savedMovieViewModel defined
         savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
 
+        // Check if arguments null or not
         if(arguments?.get("movie")!= null) {
             if (requireArguments().getSerializable("movie") != null) {
                 singleMovieData = requireArguments().getSerializable("movie") as Result
@@ -78,8 +77,6 @@ class SavedFragment : Fragment() {
 
         // Setup saved_movie_recyclerview to Movie Adapter
         saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
-        // Setup savedMovieViewModel to SavedViewModel
-
 
         //Read all room db data and past to recyclerview
         savedMovieViewModel.readAllData.observe(viewLifecycleOwner, Observer {
