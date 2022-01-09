@@ -45,6 +45,12 @@ class SavedMovieViewModel(application: Application): AndroidViewModel(applicatio
         }
     }
 
+    fun deleteMovie(movie: Result){
+        viewModelScope.launch (Dispatchers.IO){
+            repository.deleteMovieFromRoomDb(movie)
+        }
+    }
+
 
 
 }
