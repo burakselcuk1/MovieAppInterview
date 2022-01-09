@@ -51,7 +51,6 @@ class SavedFragment : Fragment() {
         savedMovieViewModel = ViewModelProvider(this).get(SavedMovieViewModel::class.java)
 
 
-
         val saveMovie = Result(singleMovieData.adult,
             singleMovieData.backdrop_path,
             singleMovieData.id,
@@ -69,7 +68,7 @@ class SavedFragment : Fragment() {
 
         savedMovieViewModel.addMovie(saveMovie)
 
-
+        //Read all room db data and past to recyclerview
         savedMovieViewModel.readAllData.observe(viewLifecycleOwner, Observer {
             roomAdater = RoomAdapter(it as ArrayList<Result>)
 
