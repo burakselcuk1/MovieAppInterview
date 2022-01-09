@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieappinterview.Adapter.MovieAdapter
 import com.example.movieappinterview.R
@@ -49,7 +50,6 @@ class DashboardFragment : Fragment() {
 
                 //    adapter.updataMovieList(it)
             }
-
         })
     }
 
