@@ -1,7 +1,5 @@
 package com.example.movieappinterview.Adapter
 
-import android.R.id.message
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,11 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieappinterview.R
 import com.example.movieappinterview.Util.Constans.Companion.POSTER_MAIN_URL
-import com.example.movieappinterview.fragments.DashboardFragmentDirections
-import com.example.movieappinterview.fragments.MovieDetail.MovieDetailsFragment
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.model.movie
-import com.google.android.material.internal.ContextUtils.getActivity
 import kotlinx.android.synthetic.main.single_movie_item.view.*
 
 
