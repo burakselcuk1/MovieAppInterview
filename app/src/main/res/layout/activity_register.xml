@@ -59,6 +59,8 @@
         android:layout_marginTop="28dp"
         android:backgroundTint="@color/white"
         android:hint="Password"
+        android:inputType="textPassword"
+
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/registerEmail"
         app:layout_constraintStart_toStartOf="@+id/registerEmail"
