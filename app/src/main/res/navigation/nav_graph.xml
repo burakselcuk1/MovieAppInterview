@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="com.example.movieappinterview.fragments.MovieDetail.MovieDetailsFragment"
+        android:name="com.example.movieappinterview.fragments.MovieDetailsFragment"
         android:label="Movie Detail"
         tools:layout="@layout/fragment_movie_details" >
         <action
