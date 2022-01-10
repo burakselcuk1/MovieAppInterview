@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:textColor="@color/white"
-
+        android:inputType="textPassword"
         android:backgroundTint="@color/white"
         android:hint="Password"
         android:textColorHint="@color/white"
