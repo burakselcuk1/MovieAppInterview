@@ -1,18 +1,23 @@
 package com.example.movieappinterview.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import com.example.movieappinterview.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.fragment_movie_details.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 private lateinit var database: DatabaseReference
 private lateinit var auth : FirebaseAuth
+
 
 class ProfileFragment : Fragment() {
 
@@ -34,11 +39,14 @@ class ProfileFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
 
+        // firebase instance connection
         database = FirebaseDatabase.getInstance().getReference("users")
         auth = FirebaseAuth.getInstance()
+        // Current user id
         val uid = auth.currentUser?.uid
         val ordersRef = database.child("$uid")
 
+        // Get contact data from Firebase and equals to ui components
         var getData = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -48,7 +56,15 @@ class ProfileFragment : Fragment() {
                 emaill.setText(email.toString())
                 var phone = snapshot.child("phone").getValue()
                 phonee.setText(phone.toString())
+                var url = snapshot.child("imageUrl").getValue()
 
+                // For profile picture
+                context?.let {
+                    Glide.with(this@ProfileFragment)
+                        .load(url)
+                        .into(circle_image_profile)
+                    user_profile_picture.visibility = View.INVISIBLE
+                }
 
                 usernameee.setText(username.toString())
             }
