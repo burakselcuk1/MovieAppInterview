@@ -58,8 +58,6 @@ class MovieDetailsFragment : Fragment() {
                 navigationController.navigate(R.id.action_movieDetailsFragment_to_savedFragment, bundle)
 
             }
-
-
         }
     }
 

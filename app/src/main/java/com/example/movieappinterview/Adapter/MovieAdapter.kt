@@ -52,7 +52,6 @@ class MovieAdapter( val dataSet: movie) :
 
         viewHolder.description.text = result.overview
         viewHolder.movieName.text = result.original_title
-
         val url =POSTER_MAIN_URL +  dataSet.results.get(position).poster_path
 
 
