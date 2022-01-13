@@ -23,8 +23,6 @@ class SavedMovieDetailViewModel(application: Application): AndroidViewModel(appl
 
     val moviesDetail = MutableLiveData<Result>()
 
-
-
     fun getMoviesDetailForSavedDetail(movieId: String){
         disposable.addAll(
             apiService.getMovieDetails(movieId).subscribeOn(Schedulers.newThread())
@@ -44,6 +42,4 @@ class SavedMovieDetailViewModel(application: Application): AndroidViewModel(appl
                 })
         )
     }
-
-
     }
