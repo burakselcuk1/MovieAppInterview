@@ -34,7 +34,6 @@ class SavedFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +41,6 @@ class SavedFragment : Fragment() {
 
         return inflater.inflate(R.layout.fragment_saved, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -72,7 +70,6 @@ class SavedFragment : Fragment() {
                 savedMovieViewModel.addMovie(saveMovie)
             }
         }
-
         // Setup saved_movie_recyclerview to Movie Adapter
         saved_movie_recyclerview.layoutManager = LinearLayoutManager(context)
 
@@ -83,10 +80,5 @@ class SavedFragment : Fragment() {
             saved_movie_recyclerview.adapter = roomAdater
 
         })
-
-
-
     }
-
-
 }
