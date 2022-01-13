@@ -6,9 +6,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.db.MovieDatabase
 import com.example.db.MovieRepository
 import com.example.movieappinterview.api.MovieDbApi
 import com.example.movieappinterview.model.Result
+import com.example.movieappinterview.model.movie
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -16,12 +18,20 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SavedMovieDetailViewModel(application: Application): AndroidViewModel(application) {
+
+ class SavedMovieDetailViewModel(application: Application): AndroidViewModel(application) {
+
+     private val repository: MovieRepository
 
     private val apiService = MovieDbApi()
     private val disposable = CompositeDisposable()
 
     val moviesDetail = MutableLiveData<Result>()
+
+     init {
+         val movieDao = MovieDatabase.getDatabase(application).movieDao()
+         repository = MovieRepository(movieDao)
+     }
 
     fun getMoviesDetailForSavedDetail(movieId: String){
         disposable.addAll(
@@ -42,4 +52,10 @@ class SavedMovieDetailViewModel(application: Application): AndroidViewModel(appl
                 })
         )
     }
+     fun deleteMovie(movie: Result){
+         viewModelScope.launch (Dispatchers.IO){
+             repository.deleteMovieFromRoomDb(movie)
+         }
+     }
     }
+
