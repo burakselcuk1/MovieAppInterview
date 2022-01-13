@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
         navController = findNavController(R.id.main_fragment)
         setupActionBarWithNavController(navController)
         setupSmoothBottomMenu()
