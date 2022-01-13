@@ -25,17 +25,12 @@ class SavedMovieViewModel(application: Application): AndroidViewModel(applicatio
     private val apiService = MovieDbApi()
     private val disposable = CompositeDisposable()
 
-
     val moviesSaved = MutableLiveData<Result>()
     init {
         val movieDao = MovieDatabase.getDatabase(application).movieDao()
         repository = MovieRepository(movieDao)
         readAllData = repository.readAllData
     }
-
-
-
-
     fun addMovie(movie: Result){
         viewModelScope.launch(Dispatchers.IO){
 
@@ -43,13 +38,9 @@ class SavedMovieViewModel(application: Application): AndroidViewModel(applicatio
             repository.addMovie(movie)
         }
     }
-
     fun deleteMovie(movie: Result){
         viewModelScope.launch (Dispatchers.IO){
             repository.deleteMovieFromRoomDb(movie)
         }
     }
-
-
-
 }
