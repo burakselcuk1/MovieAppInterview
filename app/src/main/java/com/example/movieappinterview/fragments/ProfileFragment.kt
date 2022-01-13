@@ -65,7 +65,6 @@ class ProfileFragment : Fragment() {
                         .into(circle_image_profile)
                     user_profile_picture.visibility = View.INVISIBLE
                 }
-
                 usernameee.setText(username.toString())
             }
             override fun onCancelled(error: DatabaseError) {
@@ -73,8 +72,5 @@ class ProfileFragment : Fragment() {
         }
         ordersRef.addValueEventListener(getData)
         ordersRef.addListenerForSingleValueEvent(getData)
-
-
-
     }
 }
