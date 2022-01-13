@@ -19,7 +19,6 @@ class MovieDetailViewModel  : ViewModel() {
 
     val moviesDetail = MutableLiveData<Result>()
 
-
     fun getMoviesDetail(movieId: String){
         disposable.addAll(
             apiService.getMovieDetails(movieId).subscribeOn(Schedulers.newThread())
@@ -39,6 +38,4 @@ class MovieDetailViewModel  : ViewModel() {
                 })
         )
     }
-
-
 }
