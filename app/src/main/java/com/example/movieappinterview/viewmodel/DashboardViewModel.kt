@@ -20,7 +20,6 @@ class DashboardViewModel(): ViewModel() {
     private val apiService = MovieDbApi()
     private val disposable = CompositeDisposable()
 
-
     val movies = MutableLiveData<movie>()
 
     fun getMovies(){
@@ -40,8 +39,6 @@ class DashboardViewModel(): ViewModel() {
                         }
                     })
                 )
-
-
     }
 }
 
