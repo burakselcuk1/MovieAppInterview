@@ -22,9 +22,6 @@ class MovieDetailsFragment : Fragment() {
     private lateinit var movieDetailViewModel: MovieDetailViewModel
     lateinit var resultMovie:Result
 
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +29,6 @@ class MovieDetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie_details, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,19 +44,14 @@ class MovieDetailsFragment : Fragment() {
 
         //Goes to SavedFragments
         save_movie_button.setOnClickListener {
-
             var bundle = Bundle()
-
             resultMovie.let {
                 bundle.putSerializable("movie", resultMovie)
-
                 val navigationController = Navigation.findNavController(view)
                 navigationController.navigate(R.id.action_movieDetailsFragment_to_savedFragment, bundle)
-
             }
         }
     }
-
     //Get movie detail information from api and paste fragment_movie_detail.xml page
     private fun getMoviesDetailFromApi() {
 
@@ -82,7 +73,6 @@ class MovieDetailsFragment : Fragment() {
                     .load(movieBackDropPath)
                     .into(main_poster)
             }
-
         })
     }
 }
