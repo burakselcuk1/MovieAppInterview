@@ -49,11 +49,12 @@ class ProfileFragment : Fragment() {
         // Get contact data from Firebase and equals to ui components
         var getData = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                var email = snapshot.child("email").getValue()
+                emaill.setText(email.toString())
 
                 var username = snapshot.child("username").getValue()
                 usernamee.setText(username.toString())
-                var email = snapshot.child("email").getValue()
-                emaill.setText(email.toString())
+
                 var phone = snapshot.child("phone").getValue()
                 phonee.setText(phone.toString())
                 var url = snapshot.child("imageUrl").getValue()
@@ -65,7 +66,6 @@ class ProfileFragment : Fragment() {
                         .into(circle_image_profile)
                     user_profile_picture.visibility = View.INVISIBLE
                 }
-                usernameee.setText(username.toString())
             }
             override fun onCancelled(error: DatabaseError) {
             }
