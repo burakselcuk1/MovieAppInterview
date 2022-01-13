@@ -16,7 +16,6 @@ abstract class MovieDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: MovieDatabase? = null
 
-
        fun getDatabase(context: Context): MovieDatabase{
             val tempInstance = INSTANCE
             if (tempInstance!=null){
@@ -32,6 +31,5 @@ abstract class MovieDatabase: RoomDatabase() {
                 return instance
             }
         }
-
     }
 }
