@@ -1,5 +1,6 @@
 package com.example.movieappinterview.api
 
+import com.example.movieappinterview.Util.Constans.Companion.API_KEY
 import com.example.movieappinterview.Util.Constans.Companion.BASE_URL
 import com.example.movieappinterview.model.Result
 import com.example.movieappinterview.model.movie
