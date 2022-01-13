@@ -41,11 +41,7 @@ class SavedMovieDetailFragment : Fragment() {
         savedMovieDetailViewModel = ViewModelProvider(this).get(SavedMovieDetailViewModel::class.java)
         savedMovieDetailViewModel.getMoviesDetailForSavedDetail(movieId!!)
         getMoviesDetailFromApi()
-
-
-
     }
-
 
     // Get movies detail from api for saved movie detail screen
     private fun getMoviesDetailFromApi() {
@@ -68,10 +64,6 @@ class SavedMovieDetailFragment : Fragment() {
                     .load(movieBackDropPath)
                     .into(saved_main_poster)
             }
-
         })
-
-
     }
-
 }
