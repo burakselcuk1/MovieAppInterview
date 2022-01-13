@@ -34,11 +34,7 @@ class UpdateProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_update_profile, container, false)
-
-
     }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // User can select a image for profile pic
@@ -51,7 +47,6 @@ class UpdateProfileFragment : Fragment() {
             uploadImageToFirebaseStorage()
         }
     }
-
     private fun uploadImageToFirebaseStorage() {
         var username1 = update_user_username.text.toString()
         var email1 = update_user_email.text.toString()
@@ -105,7 +100,6 @@ class UpdateProfileFragment : Fragment() {
                 }
         }
     }
-
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
         database = FirebaseDatabase.getInstance().getReference("users")
         auth = FirebaseAuth.getInstance()
@@ -119,25 +113,19 @@ class UpdateProfileFragment : Fragment() {
             database.child(uid).setValue(FirebaseUserProfile(username,phone, profileImageUrl.toString(),email)).addOnSuccessListener {
 
                 Toast.makeText(context,"SUSCESSFULLY ADDED NAME!", Toast.LENGTH_SHORT).show()
-
                 //val action = UpdataProfileFragmentDirections.actionUpdataProfileFragmentToFourthFragment()
                 //  Navigation.findNavController(view).navigate(action)
-
             }.addOnFailureListener{
                 Toast.makeText(context,"FAILADANA!", Toast.LENGTH_SHORT).show()
-
             }
         }
     }
-
     private fun selectImage() {
         val intent = Intent()
         intent.type="image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(intent,0)
     }
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
