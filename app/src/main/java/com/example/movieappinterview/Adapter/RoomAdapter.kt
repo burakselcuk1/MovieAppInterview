@@ -22,10 +22,6 @@ import kotlinx.android.synthetic.main.single_room_item.view.*
 class RoomAdapter(private val dataSet: ArrayList<Result>) :
     RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val movieName: TextView
         val overview: TextView
@@ -61,19 +57,12 @@ class RoomAdapter(private val dataSet: ArrayList<Result>) :
             Glide.with(this).load(url).into(viewHolder.itemView.room_movieImage)
         }
 
-
-
         val result: Result = dataSet.get(position)
         viewHolder.overview.text = result.overview
         viewHolder.movieName.text = result.original_title
 
-
-
-
         // Goes to saved_movie_detail_fragment
         viewHolder.itemView.setOnClickListener {
-
-
 
             val bundle = Bundle()
             bundle.putString("movieIdd", ""+result.id)
@@ -87,12 +76,9 @@ class RoomAdapter(private val dataSet: ArrayList<Result>) :
             Navigation.findNavController(it).navigate(action)
 */
         }
-
     }
-
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
-
 
     fun setData(note: ArrayList<Result>){
         dataSet.clear()
