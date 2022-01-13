@@ -23,10 +23,10 @@ interface MovieDbInterface {
     ): Single<movie>
 
     //get movie by id
-    @GET("3/movie/{movie_id}?api_key=6eeb39d6df396b3373f188208038112c&language=en-US")
+    @GET("3/movie/{movie_id}?")
     fun getMovieDetails(
-
-        @Path ("movie_id") id: String
+        @Path ("movie_id") id: String,
+        @Query("api_key") api_key: String = API_KEY
 
     ) : Single<Result>
 
