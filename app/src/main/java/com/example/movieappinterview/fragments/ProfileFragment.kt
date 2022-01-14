@@ -1,12 +1,15 @@
 package com.example.movieappinterview.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.movieappinterview.R
 import com.google.firebase.auth.FirebaseAuth
@@ -68,6 +71,17 @@ class ProfileFragment : Fragment() {
                             .into(circle_image_profile)
                         user_profile_picture.visibility = View.INVISIBLE
                     }
+                }else{
+
+
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.setPositiveButton("Okay"){_, _ ->
+
+                    }
+                    builder.setNegativeButton(""){_, _ ->}
+                    builder.setTitle("Plaease add your contact information")
+                    builder.setMessage("Are you sure delete this movie")
+                    builder.create().show()
                 }
             }
             override fun onCancelled(error: DatabaseError) {
