@@ -54,7 +54,11 @@
         android:id="@+id/updateProfileFragment"
         android:name="com.example.movieappinterview.fragments.UpdateProfileFragment"
         android:label="Update Profile"
-        tools:layout="@layout/fragment_update_profile" />
+        tools:layout="@layout/fragment_update_profile" >
+        <action
+            android:id="@+id/action_updateProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.movieappinterview.fragments.SearchFragment"
