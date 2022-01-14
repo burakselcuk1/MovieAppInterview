@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.movieappinterview.R
 import com.example.movieappinterview.model.FirebaseUserProfile
 import com.google.firebase.auth.FirebaseAuth
@@ -91,6 +92,7 @@ class UpdateProfileFragment : Fragment() {
                     storage.downloadUrl.addOnSuccessListener {
                         Log.d("UpdateProfileFragment","File Location: $it")
                         saveUserToFirebaseDatabase(it.toString())
+                        findNavController().navigate(R.id.action_updateProfileFragment_to_profileFragment)
                     }
 
                 }.addOnFailureListener{
