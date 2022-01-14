@@ -76,11 +76,10 @@ class ProfileFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setPositiveButton("Okay"){_, _ ->
-
                     }
                     builder.setNegativeButton(""){_, _ ->}
                     builder.setTitle("Plaease add your contact information")
-                    builder.setMessage("Are you sure delete this movie")
+                    builder.setMessage("Click update button and add your profile informations")
                     builder.create().show()
                 }
             }
