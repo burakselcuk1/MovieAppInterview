@@ -60,13 +60,14 @@ class SavedMovieDetailFragment : Fragment() {
             builder.setPositiveButton("Yes"){_, _ ->
                 savedMovieDetailViewModel.deleteMovie(it)
                 findNavController().navigate(R.id.action_savedMovieDetailFragment_to_savedFragment)
+                Toast.makeText(requireContext(),"Movie deleted!", Toast.LENGTH_SHORT).show()
+
 
             }
             builder.setNegativeButton("No"){_, _ ->}
             builder.setTitle("Delete ${it.original_title}")
             builder.setMessage("Are you sure delete this movie ${it.original_title}")
             builder.create().show()
-            Toast.makeText(requireContext(),"Movie deleted!", Toast.LENGTH_SHORT).show()
 
         })
     }
