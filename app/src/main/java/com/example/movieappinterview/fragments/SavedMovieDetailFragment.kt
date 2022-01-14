@@ -1,5 +1,6 @@
 package com.example.movieappinterview.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,8 +54,20 @@ class SavedMovieDetailFragment : Fragment() {
 
     private fun deleteMovieFromRoomDb() {
         savedMovieDetailViewModel.moviesDetail.observe(viewLifecycleOwner, Observer {
-            savedMovieDetailViewModel.deleteMovie(it)
-            findNavController().navigate(R.id.action_savedMovieDetailFragment_to_savedFragment)
+
+
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setPositiveButton("Yes"){_, _ ->
+                savedMovieDetailViewModel.deleteMovie(it)
+                findNavController().navigate(R.id.action_savedMovieDetailFragment_to_savedFragment)
+
+            }
+            builder.setNegativeButton("No"){_, _ ->}
+            builder.setTitle("Delete ${it.original_title}")
+            builder.setMessage("Are you sure delete this movie ${it.original_title}")
+            builder.create().show()
+            Toast.makeText(requireContext(),"Movie deleted!", Toast.LENGTH_SHORT).show()
+
         })
     }
 
