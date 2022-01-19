@@ -1,7 +1,6 @@
-package com.example.db
+package com.example.movieappinterview.db
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -16,7 +15,7 @@ abstract class MovieDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: MovieDatabase? = null
 
-       fun getDatabase(context: Context): MovieDatabase{
+       fun getDatabase(context: Context): MovieDatabase {
             val tempInstance = INSTANCE
             if (tempInstance!=null){
                 return tempInstance
