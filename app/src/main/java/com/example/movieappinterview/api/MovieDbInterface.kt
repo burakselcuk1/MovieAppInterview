@@ -11,8 +11,6 @@ import retrofit2.http.Query
 
 interface MovieDbInterface {
 
-
-
     //get all movies
     @GET("3/movie/popular?")
     fun getMovieList(
