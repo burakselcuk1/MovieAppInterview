@@ -27,11 +27,9 @@ class MovieDetailViewModel  : ViewModel() {
 
                     override fun onSuccess(t: Result) {
                         moviesDetail.value = t
-                        //Log.e("burak", "başarılı" + t.toString())
                     }
 
                     override fun onError(e: Throwable) {
-                        Log.e("burak", "başarısız "+e.toString())
                         e.printStackTrace()
                     }
 
