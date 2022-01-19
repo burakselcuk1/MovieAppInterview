@@ -4,13 +4,11 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.db.MovieDatabase
-import com.example.db.MovieRepository
+import com.example.movieappinterview.db.MovieDatabase
+import com.example.movieappinterview.db.MovieRepository
 import com.example.movieappinterview.api.MovieDbApi
 import com.example.movieappinterview.model.Result
-import com.example.movieappinterview.model.movie
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
