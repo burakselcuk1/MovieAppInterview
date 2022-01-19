@@ -1,7 +1,7 @@
-package com.example.db
+package com.example.movieappinterview.db
 
-import android.util.Log
 import androidx.lifecycle.LiveData
+import com.example.movieappinterview.db.Dao
 import com.example.movieappinterview.model.Result
 
 class MovieRepository(private val movieDao: Dao) {
