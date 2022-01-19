@@ -11,7 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieDbApi {
 
-    // DETAIL LINK https://api.themoviedb.org/3/movie/299534?api_key=6eeb39d6df396b3373f188208038112c&language=en-US
 
 
 
