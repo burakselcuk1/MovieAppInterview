@@ -11,9 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieDbApi {
 
-
-
-
     private val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
