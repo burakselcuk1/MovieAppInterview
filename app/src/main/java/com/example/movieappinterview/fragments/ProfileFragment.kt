@@ -72,14 +72,12 @@ class ProfileFragment : Fragment() {
                         user_profile_picture.visibility = View.INVISIBLE
                     }
                 }else{
-
-
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setPositiveButton("Okay"){_, _ ->
                     }
                     builder.setNegativeButton(""){_, _ ->}
                     builder.setTitle("Plaease add your contact information")
-                    builder.setMessage("Click update button and add your profile informations")
+                    builder.setMessage("Click update button")
                     builder.create().show()
                 }
             }
