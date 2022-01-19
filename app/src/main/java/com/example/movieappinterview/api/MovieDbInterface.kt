@@ -11,9 +11,7 @@ import retrofit2.http.Query
 
 interface MovieDbInterface {
 
-//    https://api.themoviedb.org/3/movie/299534?api_key=6eeb39d6df396b3373f188208038112c&language=en-US
 
-//    https://api.themoviedb.org/3/movie/popular?api_key=6eeb39d6df396b3373f188208038112c
 
     //get all movies
     @GET("3/movie/popular?")
